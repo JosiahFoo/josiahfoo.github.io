@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Baker's Delight Homepage</title>
+<meta charset="utf-8">
+<link rel="stylesheet" href="css/logincss.css">
+<link rel="icon" href="img/mylogo.png">
+</head>
+<body>
+	<div class="banner">
+		<div class="navbar">
+			<a href="./welcome.html"><img src="img/logo.png" alt=""></a>
+		   <ul>
+			<li><a href="./home.html">Home</a></li>
+			<li><a href="./info.html">Info</a></li>
+			<li><a href="./shop.html">Shop</a></li>
+			<li><a href="./contact.html">Contact</a></li>
+			<li><a href="./login.html">Login</a></li>
+			<li><a href="./cart.html"><img src="img/carticon.png" alt=""></a></li>
+	    	</ul>
+		</div>
+	</div>
+	<div class="form-box">
+		<h1 id="title">Sign Up</h1>
+		<form action="./signupsuccess.html">
+			<div class="input-group">
+				
+				<div class="input-field" id="nameField">
+					<img src="img/name.png">
+					<input type="text" placeholder="Name" id="register-name" onkeyup="validateName()">
+                    <span id="name-error"></span>
+				</div>
+				<div class="input-field">
+					<img src="img/email.png">
+					<input type="email" placeholder="email" id="register-email" onkeyup="validateEmail()">
+                    <span id="email-error"></span>
+				</div>
+				<div class="input-field">
+					<img src="img/password.png" id="register-password" onkeyup="validatePassword()">
+					<input type="password" placeholder="Password">
+                    <span id="password-error"></span>
+				</div>
+                <p>Lost password <a href="">Click Here</a></p>
+                <button onclick="return validateForm()">Submit</button>
+				<span id="submit-error"></span>
+			</div>
+			
+			<div class="btn-field">
+				<a href="./register.html"><button type="button">Sign Up</button></a>
+				<a href="./login.html"><button type="button">Sign In</button></a>
+			</div>
+		</form>
+	</div>
+	</div>
+
+<script>
+var nameError = document.getElementById("name-error");
+var emailError = document.getElementById("email-error");
+var passwordError = document.getElementById("password-error");
+var submitError = document.getElementById("submit-error");
+
+function validateName(){
+    var name = document.getElementById("register-name").value;
+
+    if (name.length ==0){
+        nameError.innerHTML = 'Name is required';
+        return false;
+    }
+    if (!name.match(/^[A-Za-z]*\s{1}[A-Za-z]*$/)){
+        nameError.innerHTML = 'Write full name';
+        return false;
+    }
+    nameError.innerHTML = '<img src=img/check.png>';
+    return true
+}
+function validateEmail(){
+    var email = document.getElementById("register-email").value;
+
+    if (email.length ==0){
+        emailError.innerHTML = 'E-mail is required';
+        return false;
+    }
+    if (!email.match(/\S+@\S+\.\S+/)){
+        emailError.innerHTML = 'Enter valid email';
+        return false;
+    }
+    emailError.innerHTML = '<img src=img/check.png>';
+    return true
+}
+function validatePassword(){
+    var passowrd = document.getElementById("register-password").value;
+
+    if (passowrd.length ==0){
+        passwordError.innerHTML = 'Password is required';
+        return false;
+    }
+    if (passowrd.length <=3){
+        passwordError.innerHTML = 'Password must be 3 or more digits ';
+        return false;
+    }
+    if (!passowrd.match(/^[0-9]{10}$/)){
+        passwordError.innerHTML = 'Only use digits';
+        return false;
+    }
+    passwordError.innerHTML = '<img src=img/check.png>';
+    return true
+}
+function validateForm(){
+    if(!validateName() || !validatePassword() || !validateEmail()){
+        submitError.style.display = 'block';
+        submitError.innerHTML = 'Please fix error to submit';
+        setTimeout(function(){submitError.style.display = 'none';}, 3000 );
+        return false;
+    }
+}
+</script>
+</body>
+</html>

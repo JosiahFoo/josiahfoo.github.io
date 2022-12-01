@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Baker's Delight Homepage</title>
+<meta charset="utf-8">
+<link rel="stylesheet" href="css/logincss.css">
+<link rel="icon" href="img/mylogo.png">
+</head>
+<body>
+	<div class="banner">
+		<div class="navbar">
+			<a href="./welcome.html"><img src="img/logo.png" alt=""></a>
+		   <ul>
+			<li><a href="./home.html">Home</a></li>
+			<li><a href="./info.html">Info</a></li>
+			<li><a href="./shop.html">Shop</a></li>
+			<li><a href="./contact.html">Contact</a></li>
+			<li><a href="./login.html">Login</a></li>
+			<li><a href="./cart.html"><img src="img/carticon.png" alt=""></a></li>
+	    	</ul>
+		</div>
+	</div>
+	<div class="form-box">
+		<h1 id="title">Log in</h1>
+		<form action="./successpage.html">
+			<div class="input-group">
+				<div class="input-field">
+					<img src="img/email.png">
+					<input type="email" placeholder="email" id="login-email" onkeyup="validateEmail()">
+				</div>
+				<div class="input-field">
+					<img src="img/password.png">
+					<input type="password" placeholder="Passowrd" id="login-password" onkeyup="validatePassword()">
+				</div>
+				<p>Lost password <a href="">Click Here</a></p>
+				<button onclick="return validateForm()" >Submit</button>
+				<span id="submit-error"></span>
+
+			</div>
+			
+			<div class="btn-field">
+				<a href="./register.html"><button type="button">Sign Up</button></a>
+				<a href="./login.html"><button type="button">Sign In</button></a>
+			</div>
+		</form>
+	</div>
+	</div>
+
+<script>
+var submitError = document.getElementById("submit-error");
+function validateEmail(){
+    var email = document.getElementById("login-email").value;
+    if (!email.match("123@gmail.com")){
+        return false;
+    }
+    return true
+}
+function validatePassword(){
+    var password = document.getElementById("login-password").value;
+    if (!password.match("123")){
+        return false;
+    }
+    return true
+}
+function validateForm(){
+    if(!validateEmail() || !validatePassword() ){
+        submitError.style.display = 'block';
+        submitError.innerHTML = 'Email or passowrd is incorrect';
+        setTimeout(function(){submitError.style.display = 'none';}, 3000 );
+        return false;
+    }
+}
+
+</script>
+</body>
+</html>

@@ -1,0 +1,77 @@
+var nameError = document.getElementById("name-error");
+var phoneError = document.getElementById("phone-error");
+var emailError = document.getElementById("email-error");
+var messageError = document.getElementById("message-error");
+var submitError = document.getElementById("submit-error");
+
+function validateName(){
+    var name = document.getElementById("contact-name").value;
+
+    if (name.length ==0){
+        nameError.innerHTML = 'Name is required';
+        return false;
+    }
+    if (!name.match(/^[A-Za-z]*\s{1}[A-Za-z]*$/)){
+        nameError.innerHTML = 'Write full name';
+        return false;
+    }
+    nameError.innerHTML = '<img src=img/check.png>';
+    return true
+}
+function validatePhone(){
+    var phone = document.getElementById("contact-phone").value;
+
+    if (phone.length ==0){
+        phoneError.innerHTML = 'Phone num is required';
+        return false;
+    }
+    if (phone.length !==10){
+        phoneError.innerHTML = 'Phone num must be 10 digits';
+        return false;
+    }
+    if (!phone.match(/^[0-9]{10}$/)){
+        phoneError.innerHTML = 'Only use digits';
+        return false;
+    }
+    phoneError.innerHTML = '<img src=img/check.png>';
+    return true
+}
+function validateEmail(){
+    var email = document.getElementById("contact-email").value;
+
+    if (email.length ==0){
+        emailError.innerHTML = 'E-mail is required';
+        return false;
+    }
+    if (!email.match(/\S+@\S+\.\S+/)){
+        emailError.innerHTML = 'Enter valid email';
+        return false;
+    }
+    emailError.innerHTML = '<img src=img/check.png>';
+    return true
+}
+function validateMessage(){
+    var message = document.getElementById("contact-message").value;
+    var required = 5;
+    var left = required - message.length;
+
+    if (left>0){
+        messageError.innerHTML = left + ' more characters required';
+        return false;
+    }
+    messageError.innerHTML = '<img src=img/check.png>';
+    return true
+}
+function validateForm(){
+    if(!validateName() || !validatePhone() || !validateEmail() ||!validateMessage() ){
+        submitError.style.display = 'block';
+        submitError.innerHTML = 'Please fix error to submit';
+        setTimeout(function(){submitError.style.display = 'none';}, 3000 );
+        return false;
+    }
+    if(validateName() || validatePhone() || validateEmail() ||validateMessage() ){
+        submitError.style.display = 'block';
+        submitError.innerHTML = '<p style="color:green">Message has been sent!</p>';
+        setTimeout(function(){submitError.style.display = 'none';}, 3000 );
+    }
+}

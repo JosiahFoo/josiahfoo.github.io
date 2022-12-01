@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Baker's Delight Homepage</title>
+<meta charset="utf-8">
+<link rel="stylesheet" href="css/contactcss.css">
+<link rel="icon" href="img/mylogo.png">
+</head>
+<body>
+	<div class="banner">
+		<div class="navbar">
+			<a href="./welcome.html"><img src="img/logo.png" alt=""></a>
+		   <ul>
+			<li><a href="./home.html">Home</a></li>
+			<li><a href="./info.html">Info</a></li>
+			<li><a href="./shop.html">Shop</a></li>
+			<li><a href="./contact.html">Contact</a></li>
+			<li><a href="./login.html">Login</a></li>
+			<li><a href="./cart.html"><img src="img/carticon.png" alt=""></a></li>
+	    	</ul>
+		</div>
+	</div>
+
+
+	<section class="contact">
+		<div class="content">
+			<h2>Contact Us</h2>
+			<p>We are more than willing to help you out with anything! Please do contact us!</p>
+		</div>
+		<div class="contactcontainer">
+			<div class="contactinfo">
+				<div class="box">
+					<div class="icon"><img src="img/phone.png"></div>
+					<div class="text">
+						<h3>Phone</h3>
+						<p> +6012345789</p>
+					</div>
+				</div>
+				<div class="box">
+					<div class="icon"><img src="img/email.png"></div>
+					<div class="text">
+						<h3>Email</h3>
+						<p> Baker'sDelight@gmail.com</p>
+					</div>
+				</div>
+			</div>
+			<div class="contactform">
+				<form>
+				<h2>Send Us a Message!</h2>
+				<div class="input-group">
+				<label> Name</label>
+				<input type="text" placeholder="Enter Name" id="contact-name" onkeyup="validateName()">
+				<span id="name-error"></span>
+				</div>
+				<div class="input-group">
+				<label for="pnumber"> Phone Number</label>
+				<input type="tel" placeholder="Enter Phone Number" id="contact-phone" onkeyup="validatePhone()">
+				<span id="phone-error"></span>
+				</div>
+				<div class="input-group">
+				<label for="email"> E-mail</label>
+				<input type="email" name="contactemail" placeholder="Enter E-mail" id="contact-email" onkeyup="validateEmail()">
+				<span id="email-error"></span>
+				</div>
+				<div class	="input-group">
+				<label for="msg"> Message</label>
+				<textarea rows="5" placeholder="Enter your message" id="contact-message" onkeyup="validateMessage()"></textarea>
+				<span id="message-error"></span>
+				</div>
+				<button onclick="return validateForm()">Submit</button>
+				<span id="submit-error"></span>
+				</form>
+				
+			</div>
+		</div>
+	</section>
+	<script src="contactscript.js"></script>
+
+
+	<!----footer---->
+	<footer class="footer">
+		<div class="container">
+			<div class="row">
+				<div class="footer-col">
+					<img src= "img/mys.png" alt="">
+				</div>	
+				<div class="footer-col">
+					<h4>Malaysia</h4>
+					<ul>
+						<li>1st Floor Block C Plaza,</li>
+						<li>Jalan Bukit Bintang,</li>
+						<li>Kuala Lumpur, Wilayah Persekutuan</li>
+						<li>55100, Malaysia</li>
+					</ul>
+				</div>	
+				<div class="footer-col">
+					<h4>Singapore</h4>
+					<ul>
+						<li>Blk 406 Tampines St,</li>
+						<li>41 #01-23 S(),</li>
+						<li>Singapore</li>
+						<li>179103, Singapore</li>
+					</ul>
+				</div>	
+				<div class="footer-col">
+					<h4>contact us</h4>
+					<div class="social links"> 
+					<a href="mailto: abc@gmail.com"><img src= "img/mail.png" alt=""></a>
+					<a href="https://www.facebook.com"><img src= "img/facebook.png" alt=""></a>
+					<a href="https://www.instagram.com"><img src= "img/insta.png" alt=""></a>
+					</div>
+				</div>	
+			</div>
+		</div>
+	</footer>
+	</body>
+	</html>

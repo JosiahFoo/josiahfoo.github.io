@@ -132,10 +132,7 @@ input img{
 	margin-left: 15px;
 
 }
-form p{
-	text-align: left;
-	font-size: 13px;
-}
+
 form a{
 	text-decoration: none;
 	color: #f0d7a7;
@@ -173,4 +170,11 @@ form a{
 #submit-error{
 	color: red;
 }
+.textbelow input{
+	font-size: 13px;
+	float: left;
+}
 
+.textbelow input{
+	margin: .4rem;
+}
